@@ -1,7 +1,7 @@
 # .emacs
-hanshoi's .emacs (a.k.a hemacs)
+hanshoi's .emacs (a.k.a **hemacs**)
 
-*Tested for Emacs verision 25.1 and up.*
+*Tested for Emacs version 25.1 and up.*
 
 ## Install
 ```bash
