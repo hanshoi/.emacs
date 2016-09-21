@@ -1,0 +1,2 @@
+# .emacs
+hanshoi's .emacs
