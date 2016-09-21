@@ -26,7 +26,7 @@
     ;; project
     speedbar
     projectile
-    
+
     ;; buffers
     buffer-move
     ibuffer
@@ -46,10 +46,15 @@
     jedi-core
     pymacs
     pycomplete
-    
+
+    ;; ido
+    flx-ido
+    ido-yes-or-no
+    ido-ubiquitous
+    smex
+
     ;; utils
     url
-    flx-ido
     ))
 
 

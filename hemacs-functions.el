@@ -76,6 +76,7 @@ You can override this function to get your idea of “user buffer”."
       t
       )))
 
+
 (defun next-user-buffer ()
   "Switch to the next user buffer.
 “user buffer” is determined by `user-buffer-q'."

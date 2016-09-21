@@ -2,7 +2,7 @@
 
 ;;; Commentary:
 ; General and mode specific settings are added here.
-; 
+;
 
 ;;; Code:
 
@@ -29,12 +29,22 @@
 (setq ido-use-faces nil)
 (setq ido-enable-flex-matching t)
 
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode t)
+
+(require 'ido-yes-or-no)
+(ido-yes-or-no-mode t)
+
+(require 'smex)
+(smex-initialize)
+
 ;; projectile
 (require 'projectile)
 (projectile-global-mode)
 
 ;; auto-complete
 (require 'auto-complete)
+(ac-config-default)
 (global-auto-complete-mode t)
 
 ;; speedbar
@@ -124,12 +134,13 @@ This is quite good in Python as electric-indent has traditionally been broken th
 (defun hemacs-python-mode-hook ()
   "Initialize all python related stuff."
   (add-hook 'before-save-hook 'whitespace-cleanup)
-  (setq whitespace-mode 1)
+  (setq whitespace-mode t)
   (flycheck-select-checker 'python-flake8)
 ;  (hemacs-disable-electric-indent)
   (setq highlight-indentation-mode t)
 ;;  (setup-ropemacs)
   (jedi:setup)
+  (setq electric-operator-mode t)
 ;  (setq ropemacs-mode t)
 ;  (auto-open-rope-project)
   )
@@ -226,6 +237,9 @@ This is quite good in Python as electric-indent has traditionally been broken th
   (setq js-indent-level 2))
 (add-hook 'js-mode-hook 'hemacs-js-mode-hook)
 
+
+;; Bash
+(add-to-list 'auto-mode-alist '("\\.rc\\'" . sh-mode))
 
 (provide 'hemacs-settings)
 ;;; hemacs-settings.el ends here
