@@ -40,6 +40,8 @@
 
 ;; projectile
 (require 'projectile)
+(setq projectile-indexing-method 'native)
+(setq projectile-enable-caching t)
 (projectile-global-mode)
 
 ;; auto-complete
@@ -106,16 +108,12 @@
 
 ;;; PYTHON
 
-;; pycomplete
-;(require 'pycomplete)
-
 ;; ropemacs
-;(setq py-load-pymacs-p nil)  ;; don't load the basic pymacs that was part of the python-mode
-;(require 'pymacs)
-;(pymacs-load "ropemacs" "rope-")
-;(setq ropemacs-guess-project t)
-;(setq ropemacs-enable-autoimport t)
-;(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*" "flask.*"))
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-guess-project t)
+(setq ropemacs-enable-autoimport t)
+(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*"))
 
 (defun auto-open-rope-project ()
   "Adding hook to automatically open a rope project if there is one in the current or in the upper level directory."
@@ -138,11 +136,10 @@ This is quite good in Python as electric-indent has traditionally been broken th
   (flycheck-select-checker 'python-flake8)
 ;  (hemacs-disable-electric-indent)
   (setq highlight-indentation-mode t)
-;;  (setup-ropemacs)
   (jedi:setup)
   (setq electric-operator-mode t)
-;  (setq ropemacs-mode t)
-;  (auto-open-rope-project)
+  (setq ropemacs-mode t)
+  (auto-open-rope-project)
   )
 (add-hook 'python-mode-hook 'hemacs-python-mode-hook)
 

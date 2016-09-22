@@ -45,7 +45,6 @@
     jedi
     jedi-core
     pymacs
-    pycomplete
 
     ;; ido
     flx-ido
