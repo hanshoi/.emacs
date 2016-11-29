@@ -19,6 +19,7 @@
     lua-mode
     yaml-mode
     rust-mode
+    toml-mode
 
     ;; themes
     gruber-darker-theme
