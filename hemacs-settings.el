@@ -49,6 +49,13 @@
 (ac-config-default)
 (global-auto-complete-mode t)
 
+;; uniquify
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+
+;; show filename in title
+(setq-default frame-title-format "%f")
+
 ;; speedbar
 ;;(speedbar 1)
 

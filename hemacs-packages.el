@@ -10,12 +10,15 @@
   '(
     ;; language modes
     clojure-mode
+    cython-mode
     markdown-mode
     sass-mode
     scss-mode
+    go-mode
     web-mode
     lua-mode
     yaml-mode
+    rust-mode
 
     ;; themes
     gruber-darker-theme

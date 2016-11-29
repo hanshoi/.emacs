@@ -15,7 +15,7 @@
 ;; kill buffers
 (global-set-key (kbd "C-c k") 'delete-this-buffer-and-file)
 (global-set-key (kbd "C-c z") 'kill-this-buffer)
-(global-set-key (kbd "C-c C-a") 'kill-all-buffers)
+(global-set-key (kbd "C-c C-a") 'projectile-kill-buffers)
 
 ;; move buffers in windowns
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
