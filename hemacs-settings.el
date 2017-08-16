@@ -120,7 +120,7 @@
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-guess-project t)
 (setq ropemacs-enable-autoimport t)
-(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*"))
+(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*" "flask*"))
 
 (defun auto-open-rope-project ()
   "Adding hook to automatically open a rope project if there is one in the current or in the upper level directory."

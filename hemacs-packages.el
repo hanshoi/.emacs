@@ -30,6 +30,7 @@
     ;; project
     speedbar
     projectile
+    org-jira
 
     ;; buffers
     buffer-move
