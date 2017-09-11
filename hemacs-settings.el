@@ -121,19 +121,19 @@
 ;;; PYTHON
 
 ;; ropemacs
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-guess-project t)
-(setq ropemacs-enable-autoimport t)
-(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*" "flask*"))
+;(require 'pymacs)
+;(pymacs-load "ropemacs" "rope-")
+;(setq ropemacs-guess-project t)
+;(setq ropemacs-enable-autoimport t)
+;(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*" "flask*"))
 
-(defun auto-open-rope-project ()
-  "Adding hook to automatically open a rope project if there is one in the current or in the upper level directory."
-  (cond ((file-exists-p ".ropeproject")
-         (rope-open-project default-directory))
-        ((file-exists-p "../.ropeproject")
-         (rope-open-project (concat default-directory "..")))
-        ))
+;(defun auto-open-rope-project ()
+;  "Adding hook to automatically open a rope project if there is one in the current or in the upper level directory."
+;  (cond ((file-exists-p ".ropeproject")
+;         (rope-open-project default-directory))
+;        ((file-exists-p "../.ropeproject")
+;         (rope-open-project (concat default-directory "..")))
+;        ))
 
 (defun hemacs-disable-electric-indent ()
   "Disable electric indent.
@@ -150,8 +150,8 @@ This is quite good in Python as electric-indent has traditionally been broken th
   (setq highlight-indentation-mode t)
   (jedi:setup)
   (setq electric-operator-mode t)
-  (setq ropemacs-mode t)
-  (auto-open-rope-project)
+;;  (setq ropemacs-mode t)
+;;  (auto-open-rope-project)
   )
 (add-hook 'python-mode-hook 'hemacs-python-mode-hook)
 
