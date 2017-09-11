@@ -55,7 +55,7 @@
     ;; ido
     flx-ido
     ido-yes-or-no
-    ido-ubiquitous
+    ido-completing-read+
     smex
 
     ;; utils

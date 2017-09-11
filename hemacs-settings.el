@@ -29,7 +29,7 @@
 (setq ido-use-faces nil)
 (setq ido-enable-flex-matching t)
 
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 (ido-ubiquitous-mode t)
 
 (require 'ido-yes-or-no)
