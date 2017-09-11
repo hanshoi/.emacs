@@ -31,6 +31,7 @@
     speedbar
     projectile
     org-jira
+    magit
 
     ;; buffers
     buffer-move
@@ -59,6 +60,7 @@
 
     ;; utils
     url
+    keyfreq
     ))
 
 

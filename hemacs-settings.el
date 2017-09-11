@@ -38,6 +38,11 @@
 (require 'smex)
 (smex-initialize)
 
+;; keyfreq (key combination analyzer)
+(require 'keyfreq)
+(keyfreq-mode 1)
+(keyfreq-autosave-mode 1)
+
 ;; projectile
 (require 'projectile)
 (setq projectile-indexing-method 'native)
