@@ -47,7 +47,7 @@
 (global-set-key (kbd "M-d") 'projectile-find-dir)
 (global-set-key (kbd "M-p") 'projectile-switch-project)
 (global-set-key (kbd "M-f") 'projectile-find-file)
-(global-set-key (kbd "M-g") 'projectile-grep)
+(global-set-key (kbd "M-g") 'projectile-ag)
 
 ;; browse buffers easily
 (global-set-key (kbd "M-<right>") 'next-user-buffer)
