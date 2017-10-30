@@ -21,7 +21,7 @@
 
 ;; which-key
 (require 'which-key)
-(which-key_mode)
+(which-key-mode)
 
 ;; ergoemacs
 (require 'ergoemacs-mode)
