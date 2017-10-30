@@ -19,6 +19,21 @@
 ;; highlight brackets
 (show-paren-mode 1)
 
+;; which-key
+(require 'which-key)
+(which-key_mode)
+
+;; ergoemacs
+(require 'ergoemacs-mode)
+(setq ergoemacs-theme nil)
+(setq ergoemacs-keyboard-layout "sw")
+;(ergoemacs-mode 1)
+
+;; xah-fly-keys
+(require 'xah-fly-keys)
+(xah-fly-keys-set-layout "qwerty")
+;(xah-fly-keys 1)
+
 ;; ido
 (require 'ido)
 (require 'flx-ido)
@@ -119,21 +134,6 @@
 
 
 ;;; PYTHON
-
-;; ropemacs
-;(require 'pymacs)
-;(pymacs-load "ropemacs" "rope-")
-;(setq ropemacs-guess-project t)
-;(setq ropemacs-enable-autoimport t)
-;(setq ropemacs-autoimport-modules '("os" "shutil" "sys" "logging" "django.*" "flask*"))
-
-;(defun auto-open-rope-project ()
-;  "Adding hook to automatically open a rope project if there is one in the current or in the upper level directory."
-;  (cond ((file-exists-p ".ropeproject")
-;         (rope-open-project default-directory))
-;        ((file-exists-p "../.ropeproject")
-;         (rope-open-project (concat default-directory "..")))
-;        ))
 
 (defun hemacs-disable-electric-indent ()
   "Disable electric indent.

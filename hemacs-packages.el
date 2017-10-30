@@ -41,6 +41,8 @@
     highlight-indentation
 
     ;; editing
+    ergoemacs-mode
+    xah-fly-keys
     flycheck
     multiple-cursors
     auto-complete
@@ -50,15 +52,17 @@
     ;; python
     jedi
     jedi-core
-    pymacs
+    elpy
 
     ;; ido
     flx-ido
     ido-yes-or-no
     ido-completing-read+
     smex
+    fzf
 
     ;; utils
+    which-key
     url
     keyfreq
     ))
