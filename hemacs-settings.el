@@ -23,17 +23,6 @@
 (require 'which-key)
 (which-key-mode)
 
-;; ergoemacs
-(require 'ergoemacs-mode)
-(setq ergoemacs-theme nil)
-(setq ergoemacs-keyboard-layout "sw")
-;(ergoemacs-mode 1)
-
-;; xah-fly-keys
-(require 'xah-fly-keys)
-(xah-fly-keys-set-layout "qwerty")
-;(xah-fly-keys 1)
-
 ;; ido
 (require 'ido)
 (require 'flx-ido)
@@ -72,6 +61,9 @@
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
+
+;; ssh
+(setq tramp-default-method "ssh")
 
 ;; show filename in title
 (setq-default frame-title-format "%f")
@@ -128,6 +120,22 @@
 ;; yasnippet
 (require 'yasnippet)
 
+;; jedi for python
+(setq jedi:complete-on-dot t)
+;; (setq jedi:setup-keys t)
+
+;; ergoemacs
+(require 'ergoemacs-mode)
+(setq ergoemacs-theme nil)
+(setq ergoemacs-keyboard-layout "dv")
+(ergoemacs-mode 1)
+
+;; xah-fly-keys
+(setq xah-fly-use-meta-key nil) ; must come before loading xah-fly-keys, disables ALT keys
+(require 'xah-fly-keys)
+(xah-fly-keys-set-layout "dvorak")
+(xah-fly-keys 1)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; MODE SPECIFIC SETTINGS ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -154,10 +162,6 @@ This is quite good in Python as electric-indent has traditionally been broken th
 ;;  (auto-open-rope-project)
   )
 (add-hook 'python-mode-hook 'hemacs-python-mode-hook)
-
-;; jedi for python
-(setq jedi:complete-on-dot t)
-(setq jedi:setup-keys t)
 
 
 ;; GO

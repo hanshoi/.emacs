@@ -4,66 +4,38 @@
 ; Load all keybindings that I have defined
 
 ;;; Code:
+(define-key xah-fly-leader-key-map (kbd "a") 'projectile-ag)
+(define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
+(define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
+(define-key xah-fly-leader-key-map (kbd "i") 'jedi:goto-definition)
+(define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
+(define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
+(define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
+(define-key xah-fly-leader-key-map (kbd "b") 'xah-search-current-word)
+(define-key xah-fly-key-map (kbd "<f8>") 'xah-fly-mode-toggle)
 
-;; multiple cursors bindings
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-c C->") 'mc/mark-all-like-this-in-defun)
 
-;; kill buffers
-(global-set-key (kbd "C-c k") 'delete-this-buffer-and-file)
-(global-set-key (kbd "C-c z") 'kill-this-buffer)
-(global-set-key (kbd "C-c C-a") 'projectile-kill-buffers)
+(defun my-command-mode-hook ()
+  (xah-fly--define-keys
+   xah-fly-key-map
+     '(
+       ("m" . xah-previous-user-buffer)
+       ("v" . xah-next-user-buffer)
+       ("DEL" . nil)
+       ("i" . jedi:goto-definition)
+       ("x" . jedi:goto-definition-pop-marker))))
 
-;; move buffers in windowns
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+(defun my-insert-mode-hook ()
+(xah-fly--define-keys
+   xah-fly-key-map
+     '(
+       ("DEL" . nil))))
 
-;; change windowns easily
-(global-set-key (kbd "M-S-<left>") 'windmove-left)
-(global-set-key (kbd "M-S-<right>") 'windmove-right)
-(global-set-key (kbd "M-S-<up>") 'windmove-up)
-(global-set-key (kbd "M-S-<down>") 'windmove-down)
-
-;; Make use of F* keys
-(global-set-key [f5]    'undo)
-(global-set-key [f6]    'next-error)
-(global-set-key [f7]    'goto-line)
-(global-set-key [f8]    're-search-forward)
-(global-set-key [f9]    'compile)
-(global-set-key [f10]   'mark-whole-buffer)
-(global-set-key [f11]   'revert-buffer)
-(global-set-key [f12]   'ediff-buffers)
-
-;; move texts place up and down
-(global-set-key (kbd "M-<up>") 'move-text-up)
-(global-set-key (kbd "M-<down>") 'move-text-down)
-
-;; projectile bindings
-(global-set-key (kbd "M-d") 'projectile-find-dir)
-(global-set-key (kbd "M-p") 'projectile-switch-project)
-(global-set-key (kbd "M-f") 'projectile-find-file)
-(global-set-key (kbd "M-g") 'projectile-ag)
-
-;; browse buffers easily
-(global-set-key (kbd "M-<right>") 'next-user-buffer)
-(global-set-key (kbd "M-<left>")  'previous-user-buffer)
-
-;; yasnippet
-(global-set-key (kbd "C-c C-s") 'yas-insert-snippet)
+(add-hook 'xah-fly-command-mode-activate-hook 'my-command-mode-hook)
+(add-hook 'xah-fly-insert-mode-activate-hook 'my-insert-mode-hook)
 
 ;; have ENTER (return) to indent next line as well
 (global-set-key (kbd "RET") 'newline-and-indent)
-
-;; smex
-(global-set-key (kbd "M-x") 'smex)
-;(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-;(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (provide 'hemacs-bindings)
 ;;; hemacs-bindings.el ends here

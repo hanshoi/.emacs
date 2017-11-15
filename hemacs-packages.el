@@ -65,6 +65,8 @@
     which-key
     url
     keyfreq
+    ag
+    fuzzy
     ))
 
 
