@@ -119,10 +119,11 @@
 
 ;; yasnippet
 (require 'yasnippet)
+(yas-global-mode 1)
 
 ;; jedi for python
 (setq jedi:complete-on-dot t)
-;; (setq jedi:setup-keys t)
+(setq jedi:setup-keys nil)
 
 ;; ergoemacs
 (require 'ergoemacs-mode)

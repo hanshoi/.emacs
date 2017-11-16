@@ -11,19 +11,19 @@
 (define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
 (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
 (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
-(define-key xah-fly-leader-key-map (kbd "b") 'xah-search-current-word)
 (define-key xah-fly-key-map (kbd "<f8>") 'xah-fly-mode-toggle)
-
 
 (defun my-command-mode-hook ()
   (xah-fly--define-keys
    xah-fly-key-map
-     '(
-       ("m" . xah-previous-user-buffer)
-       ("v" . xah-next-user-buffer)
-       ("DEL" . nil)
-       ("i" . jedi:goto-definition)
-       ("x" . jedi:goto-definition-pop-marker))))
+   '(
+     ("b" . xah-search-current-word)
+     ("m" . xah-previous-user-buffer)
+     ("v" . xah-next-user-buffer)
+     ("DEL" . nil)
+     ("SPC" . xah-fly-leader-key-map)
+     ("i" . jedi:goto-definition)
+     ("x" . jedi:goto-definition-pop-marker))))
 
 (defun my-insert-mode-hook ()
 (xah-fly--define-keys
