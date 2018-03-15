@@ -14,9 +14,14 @@
 (define-key xah-fly-key-map (kbd "<f8>") 'xah-fly-mode-toggle)
 
 (defun my-command-mode-hook ()
+  (setq jedi:complete-on-dot nil)
   (xah-fly--define-keys
    xah-fly-key-map
    '(
+     ("'" . yas-insert-snippet)
+     ("o" . dabbrev-expand)
+     ("e" . delete-char)
+     ("." . backward-kill-word)
      ("b" . xah-search-current-word)
      ("m" . xah-previous-user-buffer)
      ("v" . xah-next-user-buffer)
@@ -26,6 +31,7 @@
      ("x" . jedi:goto-definition-pop-marker))))
 
 (defun my-insert-mode-hook ()
+  (setq jedi:complete-on-dot t)
 (xah-fly--define-keys
    xah-fly-key-map
      '(

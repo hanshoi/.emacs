@@ -32,6 +32,7 @@
 ;; disable ido faces to see flx highlights.
 (setq ido-use-faces nil)
 (setq ido-enable-flex-matching t)
+(setq ido-auto-merge-work-directories-length -1) ;; disable file matching
 
 (require 'ido-completing-read+)
 (ido-ubiquitous-mode t)
@@ -123,13 +124,15 @@
 
 ;; jedi for python
 (setq jedi:complete-on-dot t)
-(setq jedi:setup-keys nil)
+(setq python-environment-directory "~/.virtualenvs")
+(setq python-environment-default-root-name "jedi")
+;; (setq jedi:setup-keys nil)
 
 ;; ergoemacs
-(require 'ergoemacs-mode)
-(setq ergoemacs-theme nil)
-(setq ergoemacs-keyboard-layout "dv")
-(ergoemacs-mode 1)
+;; (require 'ergoemacs-mode)
+;; (setq ergoemacs-theme nil)
+;; (setq ergoemacs-keyboard-layout "dv")
+;; (ergoemacs-mode 1)
 
 ;; xah-fly-keys
 (setq xah-fly-use-meta-key nil) ; must come before loading xah-fly-keys, disables ALT keys
@@ -222,13 +225,13 @@ This is quite good in Python as electric-indent has traditionally been broken th
 (add-hook 'web-mode-hook 'hemacs-web-mode-hook)
 
 ; set web-mode to work with {% %} syntax
-(add-hook
-   'web-mode-hook
-   '(lambda ()
-      (setq web-mode-enable-auto-pairing nil)
-      (setq-local
-       electric-pair-pairs
-       (append electric-pair-pairs '((?% . ?%))))))
+;; (add-hook
+   ;; 'web-mode-hook
+   ;; '(lambda ()
+      ;; (setq web-mode-enable-auto-pairing nil)
+      ;; (setq-local
+       ;; electric-pair
+       ;; (append electric-pair '((?% . ?%))))))
 
 
 ;; CSS
