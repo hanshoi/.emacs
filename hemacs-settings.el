@@ -190,6 +190,7 @@ This is quite good in Python as electric-indent has traditionally been broken th
 (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tmpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 (setq web-mode-engines-alist '(("php" . "\\.phtml\\'")
 			       ("blade" . "\\.blade\\.")
@@ -218,6 +219,8 @@ This is quite good in Python as electric-indent has traditionally been broken th
   "Initialize web-mode."
   (whitespace-mode -1)
   (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
   (setq web-mode-tag-auto-close-style 1)
   (when (equal web-mode-content-type "jsx")
     ;; enable flycheck
