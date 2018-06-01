@@ -20,6 +20,7 @@
     yaml-mode
     rust-mode
     toml-mode
+    ponylang-mode
 
     ;; themes
     gruber-darker-theme
@@ -48,6 +49,9 @@
     auto-complete
     electric-operator
     yasnippet
+
+    ;; pony
+    flycheck-pony
 
     ;; python
     jedi

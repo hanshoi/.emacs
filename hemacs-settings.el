@@ -261,5 +261,14 @@ This is quite good in Python as electric-indent has traditionally been broken th
 ;; Bash
 (add-to-list 'auto-mode-alist '("\\.rc\\'" . sh-mode))
 
+;; Pony
+(setq create-lockfiles nil)
+
+(add-hook
+  'ponylang-mode-hook
+  (lambda ()
+    (set-variable 'tab-width 2)))
+
+
 (provide 'hemacs-settings)
 ;;; hemacs-settings.el ends here
