@@ -22,7 +22,13 @@
 (defun kill-all-buffers ()
   "Kill all buffers from Emacs."
   (interactive)
-  (mapc 'kill-buffer 'list-buffer))
+  (mapc
+   (lambda (x)
+     (let ((name (buffer-name x)))
+       (unless (string-equal "*" (substring name 0 1))
+         (kill-buffer x))))
+   (buffer-list)))
+
 
 ;; move code to next line
 ; code copied from http://stackoverflow.com/questions/2423834/move-line-region-up-and-down-in-emacs

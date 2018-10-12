@@ -4,13 +4,14 @@
 ; Load all keybindings that I have defined
 
 ;;; Code:
-(define-key xah-fly-leader-key-map (kbd "a") 'projectile-ag)
+(define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
 (define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
 (define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
 (define-key xah-fly-leader-key-map (kbd "i") 'jedi:goto-definition)
 (define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
 (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
 (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
+(define-key xah-fly-leader-key-map (kbd "f") 'mc/edit-lines)
 (define-key xah-fly-key-map (kbd "<f8>") 'xah-fly-mode-toggle)
 
 (defun my-command-mode-hook ()

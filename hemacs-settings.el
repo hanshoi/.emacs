@@ -261,7 +261,14 @@ This is quite good in Python as electric-indent has traditionally been broken th
 ;; Bash
 (add-to-list 'auto-mode-alist '("\\.rc\\'" . sh-mode))
 
+;; Rust
+(require 'flycheck-rust)
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
 ;; Pony
+(require 'ponylang-mode)
+(require 'flycheck-pony)
 (setq create-lockfiles nil)
 
 (add-hook

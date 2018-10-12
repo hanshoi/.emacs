@@ -52,6 +52,7 @@
 
     ;; pony
     flycheck-pony
+    flycheck-rust
 
     ;; python
     jedi
@@ -70,6 +71,7 @@
     url
     keyfreq
     ag
+    projectile-ripgrep
     fuzzy
     ))
 
@@ -79,9 +81,9 @@
 (package-initialize)
 
 (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 
 (package-refresh-contents)
