@@ -128,12 +128,6 @@
 (setq python-environment-default-root-name "jedi")
 ;; (setq jedi:setup-keys nil)
 
-;; ergoemacs
-;; (require 'ergoemacs-mode)
-;; (setq ergoemacs-theme nil)
-;; (setq ergoemacs-keyboard-layout "dv")
-;; (ergoemacs-mode 1)
-
 ;; xah-fly-keys
 (setq xah-fly-use-meta-key nil) ; must come before loading xah-fly-keys, disables ALT keys
 (require 'xah-fly-keys)
@@ -162,8 +156,8 @@ This is quite good in Python as electric-indent has traditionally been broken th
   (setq highlight-indentation-mode t)
   (jedi:setup)
   (setq electric-operator-mode t)
-;;  (setq ropemacs-mode t)
-;;  (auto-open-rope-project)
+  (setq ac-sources '(ac-source-jedi-direct
+                     ac-source-words-in-same-mode-buffers))
   )
 (add-hook 'python-mode-hook 'hemacs-python-mode-hook)
 

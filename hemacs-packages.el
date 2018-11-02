@@ -58,6 +58,7 @@
     jedi
     jedi-core
     elpy
+    python-pytest
 
     ;; ido
     flx-ido
