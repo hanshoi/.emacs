@@ -53,12 +53,14 @@
     ;; pony
     flycheck-pony
     flycheck-rust
+    flycheck-mypy
 
     ;; python
     jedi
     jedi-core
     elpy
     python-pytest
+    virtualenvwrapper
 
     ;; ido
     flx-ido

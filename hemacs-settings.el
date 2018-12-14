@@ -76,6 +76,13 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; virtualenvwrapper
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(venv-initialize-eshell) ;; if you want eshell support
+(setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
+
+
 ;; flycheck
 (require 'flycheck)
 (setq flycheck-display-errors-delay 0.1)
@@ -152,12 +159,14 @@ This is quite good in Python as electric-indent has traditionally been broken th
   (add-hook 'before-save-hook 'whitespace-cleanup)
   (setq whitespace-mode t)
   (flycheck-select-checker 'python-flake8)
-;  (hemacs-disable-electric-indent)
+  (setq flycheck-python-pycompile-executable "python3.7")
   (setq highlight-indentation-mode t)
   (jedi:setup)
   (setq electric-operator-mode t)
   (setq ac-sources '(ac-source-jedi-direct
                      ac-source-words-in-same-mode-buffers))
+  (setq ac-use-comphist nil)  ;; better to have proper sources than use this
+  (setq ac-delay 0.05)
   )
 (add-hook 'python-mode-hook 'hemacs-python-mode-hook)
 
