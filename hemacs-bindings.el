@@ -23,6 +23,7 @@
      ("o" . dabbrev-expand)
      ("e" . delete-char)
      ("." . backward-kill-word)
+     ("4" . split-window-right)
      ("b" . xah-search-current-word)
      ("m" . xah-previous-user-buffer)
      ("v" . xah-next-user-buffer)

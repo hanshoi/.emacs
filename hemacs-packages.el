@@ -49,6 +49,7 @@
     auto-complete
     electric-operator
     yasnippet
+    default-text-scale
 
     ;; pony
     flycheck-pony

@@ -44,9 +44,9 @@
 (smex-initialize)
 
 ;; keyfreq (key combination analyzer)
-(require 'keyfreq)
-(keyfreq-mode 1)
-(keyfreq-autosave-mode 1)
+;(require 'keyfreq)
+;(keyfreq-mode 1)
+;(keyfreq-autosave-mode 1)
 
 ;; projectile
 (require 'projectile)
@@ -62,6 +62,12 @@
 ;; uniquify
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
+
+;; global scaling
+(require 'default-text-scale)
+(setq default-text-scale-amount 20)
+(set-face-attribute 'default nil :height 250)
+(default-text-scale-mode t)
 
 ;; ssh
 (setq tramp-default-method "ssh")
@@ -257,7 +263,7 @@ This is quite good in Python as electric-indent has traditionally been broken th
 ;; JS
 (defun hemacs-js-mode-hook ()
   "Initialize Javascript mode."
-  (setq js-indent-level 2))
+  (setq js-indent-level 4))
 (add-hook 'js-mode-hook 'hemacs-js-mode-hook)
 
 
