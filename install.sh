@@ -1,21 +1,21 @@
 #!/bin/bash
 
-EMACS_DIR="$(dirname "$0")"
-
-if [ -f $HOME/.emacs ]; then
-    mv -f $HOME/.emacs $HOME/.backup_emacs  # store old emacs configuration in case it is needed some day
-    echo "Old .emacs file changed to .backup_emacs"
-else
-    echo "No .emacs file found"
+if ! command -v doom &>/dev/null; then
+    echo "Install DOOM emacs first!"
+    exit 1
 fi
-echo ""
 
-echo "; refer hemacs for real configuration.
-;Hemacs is installed in ${EMACS_DIR}.
 
-(add-to-list 'load-path \"${EMACS_DIR}\")
-(require 'hemacs-init)
-" > ~/.emacs
+EMACS_DIR="$(pwd)"
+DOOM_DIR=$HOME/.config/doom
 
-cat ~/.emacs
-echo "New emacs file created:"
+cd "$DOOM_DIR" || (echo "No such dir as $DOOM_DIR" && exit 1)
+
+# remove old files and links
+rm ./*.el
+
+ln -s "$EMACS_DIR/init.el" "$DOOM_DIR/init.el"
+ln -s "$EMACS_DIR/config.el" "$DOOM_DIR/config.el"
+ln -s "$EMACS_DIR/packages.el" "$DOOM_DIR/packages.el"
+
+echo "New Doom Emacs configuration created!"
