@@ -15,4 +15,6 @@ Requires Doom Emacs to work
 git clone https://github.com/hanshoi/.emacs.git hemacs
 cd hemacs
 ./install.sh
+doom install
+doom sync
 ```
