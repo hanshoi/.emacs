@@ -121,67 +121,63 @@
 
 
 ;; treemacs mode keymaps
-(define-key treemacs-mode-map (kbd "n") 'treemacs-RET-action)
-(define-key treemacs-mode-map (kbd "h") 'treemacs-TAB-action)
-(define-key treemacs-mode-map (kbd "t") 'treemacs-next-line)
-(define-key treemacs-mode-map (kbd "c") 'treemacs-previous-line)
-(define-key treemacs-mode-map (kbd "v") 'treemacs-next-project)
-(define-key treemacs-mode-map (kbd "m") 'treemacs-previous-project)
-(define-key treemacs-mode-map (kbd "b") 'treemacs-previous-project)
-(define-key treemacs-mode-map (kbd "a") 'execute-extended-command)
-(define-key treemacs-mode-map (kbd "SPC") 'treemacs-menu)
-
+(map! :after treemacs :map treemacs-mode-map
+      "n" #'treemacs-RET-action
+      "h" #'treemacs-TAB-action
+      "c" #'treemacs-previous-line
+      "t" #'treemacs-next-line
+      "m" #'treemacs-previous-project
+      "v" #'treemacs-next-project
+      "a" #'execute-extended-command
+      "SPC" #'treemacs-menu)
 
 ;; isearch mode keymaps
-(define-key isearch-mode-map (kbd "C-h") 'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
-
-;; (define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
-(define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
-(define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
-(define-key xah-fly-leader-key-map (kbd "g") 'h-treemacs-toggle)
-(define-key xah-fly-leader-key-map (kbd "i") '+lookup/references)
-(define-key xah-fly-leader-key-map (kbd "o") 'dired)
-(define-key xah-fly-leader-key-map (kbd "a") 'execute-extended-command)
-(define-key xah-fly-leader-key-map (kbd "rf") 'flycheck-buffer)
-(define-key xah-fly-leader-key-map (kbd "rr") 'flycheck-buffer)
-(define-key xah-fly-leader-key-map (kbd "rl") 'flycheck-list-errors)
-(define-key xah-fly-leader-key-map (kbd "rn") 'flycheck-next-error)
-(define-key xah-fly-leader-key-map (kbd "rh") 'flycheck-previous-error)
-;; (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
-;; (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
-(define-key xah-fly-leader-key-map (kbd "f") 'terminal-toggle)
-
-(define-key xah-fly-key-map (kbd "<f8>") 'xah-fly-mode-toggle)
+(map! :map isearch-mode-map
+      "C-h" #'isearch-repeat-backward
+      "C-n" #'isearch-repeat-forward)
 
 
+(map! :after xah-fly-keys :map xah-fly-leader-key-map
+      "4" #'split-window-below
+      "k" #'vc-annotate
+      "g" #'h-treemacs-toggle
+      "i" #'+lookup/references
+      "o" #'dired
+      "a" #'execute-extended-command
+      "rf" #'flycheck-buffer
+      "rr" #'flycheck-buffer
+      "rl" #'flycheck-list-errors
+      "rn" #'flycheck-next-error
+      "rh" #'flycheck-previous-error
+      "a" #'projectile-ripgrep
+      "f" #'terminal-toggle)
+
+(map! :after xah-fly-keys :map xah-fly-key-map
+      "<f8>" #'xah-fly-mode-toggle
+      "DEL" #'nil)
+
+(map! :after xah-fly-keys :map xah-fly-command-map
+      "'" #'yas-insert-snippet
+      "o" #'hippie-expand
+      "e" #'delete-char
+      "." #'backward-kill-word
+      "4" #'split-window-right
+      "b" #'xah-search-current-word
+      "m" #'centaur-tabs-backward
+      "v" #'centaur-tabs-forward
+      "DEL" #'nil
+      "SPC" #'xah-fly-leader-key-map
+      "l" #'+format/buffer
+      "i" #'+lookup/definition
+      "x" #'better-jumper-jump-backward)
 
 (defun my-command-mode-hook ()
-  (setq jedi:complete-on-dot nil)
-  (xah-fly--define-keys
-   xah-fly-key-map
-   '(
-     ("'" . yas-insert-snippet)
-     ("o" . hippie-expand)
-     ("e" . delete-char)
-     ("." . backward-kill-word)
-     ("4" . split-window-right)
-     ("b" . xah-search-current-word)
-     ("m" . centaur-tabs-backward)
-     ("v" . centaur-tabs-forward)
-     ("DEL" . nil)
-     ("SPC" . xah-fly-leader-key-map)
-     ("l" . +format/buffer)
-     ("i" . +lookup/definition)
-     ("x" . better-jumper-jump-backward))))
+  (if (eq major-mode 'python-mode)
+      (setq jedi:complete-on-dot nil)))
 
 (defun my-insert-mode-hook ()
   (if (eq major-mode 'python-mode)
-      (setq jedi:complete-on-dot t))
-  (xah-fly--define-keys
-   xah-fly-key-map
-   '(
-     ("DEL" . nil))))
+      (setq jedi:complete-on-dot t)))
 
 (add-hook 'xah-fly-command-mode-activate-hook 'my-command-mode-hook)
 (add-hook 'xah-fly-insert-mode-activate-hook 'my-insert-mode-hook)
