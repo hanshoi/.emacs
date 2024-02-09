@@ -83,8 +83,9 @@
 ;; (setq doom-leader-key "<f8>")
 
 (setq doom-themes-treemacs-theme "doom-colors")
-(setq treemacs-follow-mode 1)
-
+(after! treemacs
+  (treemacs-git-mode 1)
+  (treemacs-follow-mode 1))
 ;; (define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
 (define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
 (define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
