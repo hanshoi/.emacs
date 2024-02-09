@@ -85,56 +85,59 @@
 (setq doom-themes-treemacs-theme "doom-colors")
 (after! treemacs
   (treemacs-git-mode 1)
-  (treemacs-follow-mode 1))
+  (treemacs-follow-mode 1)
 
-;; What treemacs does on RET action
-(setq treemacs-RET-actions-config
-      '((root-node-open   . treemacs-toggle-node)
-        (root-node-closed . treemacs-toggle-node)
-        (dir-node-open    . treemacs-toggle-node)
-        (dir-node-closed  . treemacs-toggle-node)
-        (file-node-open   . h-treemacs-open-file)
-        (file-node-closed . h-treemacs-open-file)
-        (tag-node-open    . treemacs-toggle-node-prefer-tag-visit)
-        (tag-node-closed  . treemacs-toggle-node-prefer-tag-visit)
-        (tag-node         . treemacs-visit-node-default)))
-
-
-(transient-define-prefix treemacs-menu ()
-  "Menu for treemacs operations"
-  [["File"
-    ("fc" "Create" treemacs-create-file)
-    ("fd" "Delete" treemacs-delete-file)
-    ("fm" "Move" treemacs-move-file)
-    ("fr" "Rename" treemacs-rename)
-    ("fj" "Copy" treemacs-copy-file)]
-   ["Directory"
-    ("dc" "Create" treemacs-create-dir)
-    ("dd" "Delete" treemacs-delete)]
-   ["Project"
-    ("pw" "Swich Workspace" treemacs-switch-workspace)]
-   ["Other"
-    ("w" "close" h-treemacs-close)
-    ("g" "GTFO - quit" h-treemacs-toggle)
-    ("SPC" "GTFO - quit" h-treemacs-toggle)]])
+  ;; What treemacs does on RET action
+  (setq treemacs-RET-actions-config
+        '((root-node-open   . treemacs-toggle-node)
+          (root-node-closed . treemacs-toggle-node)
+          (dir-node-open    . treemacs-toggle-node)
+          (dir-node-closed  . treemacs-toggle-node)
+          (file-node-open   . h-treemacs-open-file)
+          (file-node-closed . h-treemacs-open-file)
+          (tag-node-open    . treemacs-toggle-node-prefer-tag-visit)
+          (tag-node-closed  . treemacs-toggle-node-prefer-tag-visit)
+          (tag-node         . treemacs-visit-node-default)))
 
 
-;; treemacs mode keymaps
-(define-key treemacs-mode-map (kbd "n") 'treemacs-RET-action)
-(define-key treemacs-mode-map (kbd "h") 'treemacs-TAB-action)
-(define-key treemacs-mode-map (kbd "t") 'treemacs-next-line)
-(define-key treemacs-mode-map (kbd "c") 'treemacs-previous-line)
-(define-key treemacs-mode-map (kbd "v") 'treemacs-next-project)
-(define-key treemacs-mode-map (kbd "m") 'treemacs-previous-project)
-(define-key treemacs-mode-map (kbd "b") 'treemacs-previous-project)
-(define-key treemacs-mode-map (kbd "a") 'execute-extended-command)
-(define-key treemacs-mode-map (kbd "SPC") 'treemacs-menu)
+  (transient-define-prefix treemacs-menu ()
+    "Menu for treemacs operations"
+    [["File"
+      ("fc" "Create" treemacs-create-file)
+      ("fd" "Delete" treemacs-delete-file)
+      ("fm" "Move" treemacs-move-file)
+      ("fr" "Rename" treemacs-rename)
+      ("fj" "Copy" treemacs-copy-file)]
+     ["Directory"
+      ("dc" "Create" treemacs-create-dir)
+      ("dd" "Delete" treemacs-delete)]
+     ["Project"
+      ("pw" "Swich Workspace" treemacs-switch-workspace)]
+     ["Other"
+      ("w" "close" h-treemacs-close)
+      ("g" "GTFO - quit" h-treemacs-toggle)
+      ("SPC" "GTFO - quit" h-treemacs-toggle)]])
+
+
+  ;; treemacs mode keymaps
+  (define-key treemacs-mode-map (kbd "n") 'treemacs-RET-action)
+  (define-key treemacs-mode-map (kbd "h") 'treemacs-TAB-action)
+  (define-key treemacs-mode-map (kbd "t") 'treemacs-next-line)
+  (define-key treemacs-mode-map (kbd "c") 'treemacs-previous-line)
+  (define-key treemacs-mode-map (kbd "v") 'treemacs-next-project)
+  (define-key treemacs-mode-map (kbd "m") 'treemacs-previous-project)
+  (define-key treemacs-mode-map (kbd "b") 'treemacs-previous-project)
+  (define-key treemacs-mode-map (kbd "a") 'execute-extended-command)
+  (define-key treemacs-mode-map (kbd "SPC") 'treemacs-menu)
+
+  )
+
 
 ;; isearch mode keymaps
 (define-key isearch-mode-map (kbd "C-h") 'isearch-repeat-backward)
 (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 
-;; (define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
+(define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
 (define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
 (define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
 (define-key xah-fly-leader-key-map (kbd "g") 'h-treemacs-toggle)
