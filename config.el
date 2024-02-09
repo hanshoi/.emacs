@@ -89,15 +89,46 @@
   (treemacs-follow-mode 1))
 
 
-;; (global-set-key (kbd "C-f") 'terminal-toggle)
+(transient-define-prefix treemacs-menu ()
+  "Menu for treemacs operations"
+  [["File"
+    ("fc" "Create" treemacs-create-file)
+    ("fd" "Delete" treemacs-delete-file)
+    ("fm" "Move" treemacs-move-file)
+    ("fr" "Rename" treemacs-rename)
+    ("fj" "Rename" treemacs-copy-file)]
+   ["Directory"
+    ("dc" "Create" treemacs-create-dir)
+    ("dd" "Delete" treemacs-delete)]
+   ["Project"
+    ("pw" "Swich Workspace" treemacs-switch-workspace)]
+   ["Other"
+    ("w" "close" h-treemacs-close)
+    ("g" "GTFO - quit" h-treemacs-toggle)]])
 
+
+;; treemacs mode keymaps
+(define-key treemacs-mode-map (kbd "n") 'treemacs-RET-action)
+(define-key treemacs-mode-map (kbd "h") 'treemacs-RET-action)
+(define-key treemacs-mode-map (kbd "t") 'treemacs-next-line)
+(define-key treemacs-mode-map (kbd "c") 'treemacs-previous-line)
+(define-key treemacs-mode-map (kbd "v") 'treemacs-next-project)
+(define-key treemacs-mode-map (kbd "m") 'treemacs-previous-project)
+(define-key treemacs-mode-map (kbd "b") 'treemacs-previous-project)
+(define-key treemacs-mode-map (kbd "a") 'execute-extended-command)
+(define-key treemacs-mode-map (kbd "SPC") 'treemacs-menu)
+
+;; isearch mode keymaps
+(define-key isearch-mode-map (kbd "C-h") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
 
 ;; (define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
 (define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
 (define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
-(define-key xah-fly-leader-key-map (kbd "g") 'treemacs-select-window)
+(define-key xah-fly-leader-key-map (kbd "g") 'h-treemacs-toggle)
 (define-key xah-fly-leader-key-map (kbd "i") '+lookup/references)
 (define-key xah-fly-leader-key-map (kbd "o") 'dired)
+(define-key xah-fly-leader-key-map (kbd "a") 'execute-extended-command)
 ;; (define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
 ;; (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
 ;; (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)

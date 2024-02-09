@@ -119,3 +119,15 @@ You can override this function to get your idea of “user buffer”."
   (if (eq major-mode 'vterm-mode)
       (delete-window)
     (+vterm/toggle nil)))
+
+(defun h-treemacs-toggle ()
+  (interactive)
+  (treemacs-select-window)
+  (if (eq major-mode 'treemacs-mode)
+      (xah-fly-insert-mode-activate)
+    (xah-fly-command-mode-activate)))
+
+(defun h-treemacs-close ()
+  (interactive)
+  (delete-window)
+  (xah-fly-command-mode-activate))
