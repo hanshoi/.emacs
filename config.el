@@ -87,6 +87,11 @@
 (after! treemacs
   (treemacs-git-mode 1)
   (treemacs-follow-mode 1))
+
+
+;; (global-set-key (kbd "C-f") 'terminal-toggle)
+
+
 ;; (define-key xah-fly-leader-key-map (kbd "a") 'projectile-ripgrep)
 (define-key xah-fly-leader-key-map (kbd "4") 'split-window-below)
 (define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
@@ -96,13 +101,14 @@
 ;; (define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
 ;; (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
 ;; (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
-;; (define-key xah-fly-leader-key-map (kbd "f") 'mc/edit-lines)
+(define-key xah-fly-leader-key-map (kbd "f") 'terminal-toggle)
+
 (define-key xah-fly-key-map (kbd "<f8>") 'xah-fly-mode-toggle)
+
+
 
 (defun my-command-mode-hook ()
   (setq jedi:complete-on-dot nil)
-  ;; (if (eq major-mode 'vterm-mode)
-  ;;     (send-string-to-terminal "\e[2 q"))
   (xah-fly--define-keys
    xah-fly-key-map
    '(
@@ -123,8 +129,6 @@
 (defun my-insert-mode-hook ()
   (if (eq major-mode 'python-mode)
       (setq jedi:complete-on-dot t))
-  ;; (if (eq major-mode 'vterm-mode)
-  ;;     (send-string-to-terminal "\e[5 q"))
   (xah-fly--define-keys
    xah-fly-key-map
    '(

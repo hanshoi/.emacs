@@ -112,3 +112,10 @@ You can override this function to get your idea of “user buffer”."
 (defun start-vterm-only ()
   (interactive)
   (+vterm/here t))
+
+
+(defun terminal-toggle ()
+  (interactive)
+  (if (eq major-mode 'vterm-mode)
+      (delete-window)
+    (+vterm/toggle nil)))
