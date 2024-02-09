@@ -80,7 +80,6 @@
 (xah-fly-keys-set-layout "dvorak")
 (xah-fly-keys 1)
 
-(put 'projectile-ripgrep 'disabled nil)
 ;; (setq doom-leader-key "<f8>")
 
 (setq doom-themes-treemacs-theme "doom-colors")
@@ -142,6 +141,11 @@
 (define-key xah-fly-leader-key-map (kbd "i") '+lookup/references)
 (define-key xah-fly-leader-key-map (kbd "o") 'dired)
 (define-key xah-fly-leader-key-map (kbd "a") 'execute-extended-command)
+(define-key xah-fly-leader-key-map (kbd "rf") 'flycheck-buffer)
+(define-key xah-fly-leader-key-map (kbd "rr") 'flycheck-buffer)
+(define-key xah-fly-leader-key-map (kbd "rl") 'flycheck-list-errors)
+(define-key xah-fly-leader-key-map (kbd "rn") 'flycheck-next-error)
+(define-key xah-fly-leader-key-map (kbd "rh") 'flycheck-previous-error)
 ;; (define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
 ;; (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
 ;; (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
