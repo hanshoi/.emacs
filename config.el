@@ -88,7 +88,7 @@
   (treemacs-git-mode 1)
   (treemacs-follow-mode 1))
 
-
+;; What treemacs does on RET action
 (setq treemacs-RET-actions-config
       '((root-node-open   . treemacs-toggle-node)
         (root-node-closed . treemacs-toggle-node)
