@@ -106,3 +106,9 @@ You can override this function to get your idea of “user buffer”."
           (progn (previous-buffer)
                  (setq i (1+ i)))
         (progn (setq i 100))))))
+
+
+;; start vterm - only vterm and kill all others
+(defun start-vterm-only ()
+  (interactive)
+  (+vterm/here t))

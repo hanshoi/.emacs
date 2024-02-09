@@ -2,6 +2,7 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
+(load! "functions.el")
 
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
@@ -91,6 +92,7 @@
 (define-key xah-fly-leader-key-map (kbd "k") 'vc-annotate)
 (define-key xah-fly-leader-key-map (kbd "g") 'treemacs-select-window)
 (define-key xah-fly-leader-key-map (kbd "i") '+lookup/references)
+(define-key xah-fly-leader-key-map (kbd "o") 'dired)
 ;; (define-key xah-fly-leader-key-map (kbd "x") 'jedi:goto-definition-pop-marker)
 ;; (define-key xah-fly-leader-key-map (kbd "j") 'xah-copy-file-path)
 ;; (define-key xah-fly-leader-key-map (kbd "o") 'projectile-find-file)
@@ -99,11 +101,13 @@
 
 (defun my-command-mode-hook ()
   (setq jedi:complete-on-dot nil)
+  ;; (if (eq major-mode 'vterm-mode)
+  ;;     (send-string-to-terminal "\e[2 q"))
   (xah-fly--define-keys
    xah-fly-key-map
    '(
      ("'" . yas-insert-snippet)
-     ("o" . dabbrev-expand)
+     ("o" . hippie-expand)
      ("e" . delete-char)
      ("." . backward-kill-word)
      ("4" . split-window-right)
@@ -117,7 +121,10 @@
      ("x" . better-jumper-jump-backward))))
 
 (defun my-insert-mode-hook ()
-  (setq jedi:complete-on-dot t)
+  (if (eq major-mode 'python-mode)
+      (setq jedi:complete-on-dot t))
+  ;; (if (eq major-mode 'vterm-mode)
+  ;;     (send-string-to-terminal "\e[5 q"))
   (xah-fly--define-keys
    xah-fly-key-map
    '(

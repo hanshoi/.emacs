@@ -17,5 +17,6 @@ rm ./*.el
 ln -s "$EMACS_DIR/init.el" "$DOOM_DIR/init.el"
 ln -s "$EMACS_DIR/config.el" "$DOOM_DIR/config.el"
 ln -s "$EMACS_DIR/packages.el" "$DOOM_DIR/packages.el"
+ln -s "$EMACS_DIR/functions.el" "$DOOM_DIR/functions.el"
 
 echo "New Doom Emacs configuration created!"
