@@ -96,7 +96,7 @@
     ("fd" "Delete" treemacs-delete-file)
     ("fm" "Move" treemacs-move-file)
     ("fr" "Rename" treemacs-rename)
-    ("fj" "Rename" treemacs-copy-file)]
+    ("fj" "Copy" treemacs-copy-file)]
    ["Directory"
     ("dc" "Create" treemacs-create-dir)
     ("dd" "Delete" treemacs-delete)]
@@ -104,7 +104,8 @@
     ("pw" "Swich Workspace" treemacs-switch-workspace)]
    ["Other"
     ("w" "close" h-treemacs-close)
-    ("g" "GTFO - quit" h-treemacs-toggle)]])
+    ("g" "GTFO - quit" h-treemacs-toggle)
+    ("SPC" "GTFO - quit" h-treemacs-toggle)]])
 
 
 ;; treemacs mode keymaps
