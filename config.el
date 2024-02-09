@@ -89,6 +89,18 @@
   (treemacs-follow-mode 1))
 
 
+(setq treemacs-RET-actions-config
+      '((root-node-open   . treemacs-toggle-node)
+        (root-node-closed . treemacs-toggle-node)
+        (dir-node-open    . treemacs-toggle-node)
+        (dir-node-closed  . treemacs-toggle-node)
+        (file-node-open   . h-treemacs-open-file)
+        (file-node-closed . h-treemacs-open-file)
+        (tag-node-open    . treemacs-toggle-node-prefer-tag-visit)
+        (tag-node-closed  . treemacs-toggle-node-prefer-tag-visit)
+        (tag-node         . treemacs-visit-node-default)))
+
+
 (transient-define-prefix treemacs-menu ()
   "Menu for treemacs operations"
   [["File"
@@ -110,7 +122,7 @@
 
 ;; treemacs mode keymaps
 (define-key treemacs-mode-map (kbd "n") 'treemacs-RET-action)
-(define-key treemacs-mode-map (kbd "h") 'treemacs-RET-action)
+(define-key treemacs-mode-map (kbd "h") 'treemacs-TAB-action)
 (define-key treemacs-mode-map (kbd "t") 'treemacs-next-line)
 (define-key treemacs-mode-map (kbd "c") 'treemacs-previous-line)
 (define-key treemacs-mode-map (kbd "v") 'treemacs-next-project)

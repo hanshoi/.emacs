@@ -131,3 +131,8 @@ You can override this function to get your idea of “user buffer”."
   (interactive)
   (delete-window)
   (xah-fly-command-mode-activate))
+
+(defun h-treemacs-open-file (&optional arg)
+  (interactive)
+  (treemacs-visit-node-default arg)
+  (xah-fly-command-mode-activate))
