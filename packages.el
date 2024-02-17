@@ -12,7 +12,7 @@
 (package! xah-fly-keys)
 (package! treemacs-projectile)
 (package! treemacs-icons-dired)
-(package! treemacs-tab-bar)
+;; (package! treemacs-tab-bar)
 (package! treemacs-all-the-icons)
 (package! templ-ts-mode)
 (package! fzf)

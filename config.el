@@ -79,26 +79,30 @@
 (require 'xah-fly-keys)
 (xah-fly-keys-set-layout "dvorak")
 (xah-fly-keys 1)
+(setq indent-tabs-mode nil)
 
 ;; (setq doom-leader-key "<f8>")
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  )
+(add-hook 'web-mode-hook  'my-web-mode-hook)
 
 (setq doom-themes-treemacs-theme "doom-colors")
 (after! treemacs
   (treemacs-git-mode 1)
-  (treemacs-follow-mode 1))
-
-
-;; What treemacs does on RET action
-(setq treemacs-RET-actions-config
-      '((root-node-open   . treemacs-toggle-node)
-        (root-node-closed . treemacs-toggle-node)
-        (dir-node-open    . treemacs-toggle-node)
-        (dir-node-closed  . treemacs-toggle-node)
-        (file-node-open   . h-treemacs-open-file)
-        (file-node-closed . h-treemacs-open-file)
-        (tag-node-open    . treemacs-toggle-node-prefer-tag-visit)
-        (tag-node-closed  . treemacs-toggle-node-prefer-tag-visit)
-        (tag-node         . h-treemacs-open-file)))
+  (treemacs-follow-mode 1)
+  (treemacs-hide-gitignored-files-mode 1)
+  (setq treemacs-RET-actions-config
+        '((root-node-open   . treemacs-toggle-node)
+          (root-node-closed . treemacs-toggle-node)
+          (dir-node-open    . treemacs-toggle-node)
+          (dir-node-closed  . treemacs-toggle-node)
+          (file-node-open   . h-treemacs-open-file)
+          (file-node-closed . h-treemacs-open-file)
+          (tag-node-open    . treemacs-toggle-node-prefer-tag-visit)
+          (tag-node-closed  . treemacs-toggle-node-prefer-tag-visit)
+          (tag-node         . h-treemacs-open-file))))
 
 
 (transient-define-prefix treemacs-menu ()
@@ -107,7 +111,7 @@
     ("fc" "Create" treemacs-create-file)
     ("fd" "Delete" treemacs-delete-file)
     ("fm" "Move" treemacs-move-file)
-    ("fr" "Rename" treemacs-rename)
+    ("fr" "Rename" treemacs-rename-file)
     ("fj" "Copy" treemacs-copy-file)]
    ["Directory"
     ("dc" "Create" treemacs-create-dir)
@@ -150,6 +154,10 @@
       "rn" #'flycheck-next-error
       "rh" #'flycheck-previous-error
       "a" #'projectile-ripgrep
+      "mm" #'mc/edit-lines
+      "me" #'mc/edit-lines
+      "mc" #'mc/mark-previous-like-this
+      "mt" #'mc/mark-next-like-this
       "f" #'terminal-toggle)
 
 (map! :after xah-fly-keys :map xah-fly-key-map
