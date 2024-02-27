@@ -8,11 +8,16 @@ if [ ! -d "$DOOM_DIR" ]; then
     git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs ~/.config/emacs/bin/doom install
 fi
 
+# install tidy
+sudo apt install tidy
+
 
 cd "$DOOM_DIR" || (echo "No such dir as $DOOM_DIR" && exit 1)
 
 # remove old files and links
 rm ./*.el
+rm -f $HOME/.emacs
+rm -rf $HOME/.emacs.d
 
 ln -s "$EMACS_DIR/init.el" "$DOOM_DIR/init.el"
 ln -s "$EMACS_DIR/config.el" "$DOOM_DIR/config.el"
