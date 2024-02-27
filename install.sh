@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if ! command -v doom &>/dev/null; then
-    echo "Install DOOM emacs first!"
-    exit 1
-fi
-
-
 EMACS_DIR="$(pwd)"
 DOOM_DIR=$HOME/.config/doom
+
+if [ ! -d "$DOOM_DIR" ]; then
+    echo "Install DOOM emacs first!"
+    git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs ~/.config/emacs/bin/doom install
+fi
+
 
 cd "$DOOM_DIR" || (echo "No such dir as $DOOM_DIR" && exit 1)
 
@@ -23,3 +23,7 @@ sudo cp "$EMACS_DIR/doom.png" "/usr/share/icons/doom.png"
 sudo cp "$EMACS_DIR/emacs.desktop" "/usr/share/applications/emacs.desktop"
 
 echo "New Doom Emacs configuration created!"
+
+$HOME/.config/emacs/bin/doom sync
+
+echo "DONE!"
