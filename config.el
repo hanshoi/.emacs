@@ -81,6 +81,10 @@
 (xah-fly-keys 1)
 (setq indent-tabs-mode nil)
 
+
+;; refresh from disk when changes on disk
+(global-auto-revert-mode t)
+
 ;; (setq doom-leader-key "<f8>")
 (defun my-web-mode-hook ()
   "Hooks for Web mode."

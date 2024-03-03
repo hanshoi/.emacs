@@ -8,8 +8,8 @@ if [ ! -d "$DOOM_DIR" ]; then
     git clone --depth 1 --single-branch https://github.com/doomemacs/doomemacs ~/.config/emacs ~/.config/emacs/bin/doom install
 fi
 
-# install tidy
-sudo apt install tidy
+# install prequisities
+sudo apt install tidy shellcheck cmake
 
 
 cd "$DOOM_DIR" || (echo "No such dir as $DOOM_DIR" && exit 1)
