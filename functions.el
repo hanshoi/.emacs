@@ -136,3 +136,8 @@ You can override this function to get your idea of “user buffer”."
   (interactive)
   (treemacs-visit-node-default arg)
   (xah-fly-command-mode-activate))
+
+(defun h-buffer-fix-all ()
+  (interactive)
+  (+format/buffer)
+  (flycheck-buffer))

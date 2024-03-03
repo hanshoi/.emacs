@@ -179,7 +179,7 @@
       "v" #'centaur-tabs-forward
       "DEL" #'nil
       "SPC" #'xah-fly-leader-key-map
-      "l" #'+format/buffer
+      "l" #'h-buffer-fix-all
       "i" #'+lookup/definition
       "x" #'better-jumper-jump-backward)
 
