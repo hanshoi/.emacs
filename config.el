@@ -206,3 +206,8 @@
 
 
 (add-hook 'python-mode-hook 'pet-mode -10)
+
+(defun my-templ-mode-hook ()
+  (tree-sitter-hl-mode))
+
+(add-hook 'templ-ts-mode-hook 'my-templ-mode-hook)
