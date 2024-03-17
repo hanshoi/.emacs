@@ -25,6 +25,8 @@ ln -s "$EMACS_DIR/packages.el" "$DOOM_DIR/packages.el"
 ln -s "$EMACS_DIR/functions.el" "$DOOM_DIR/functions.el"
 
 sudo cp "$EMACS_DIR/doom.png" "/usr/share/icons/doom.png"
+sudo rm "/usr/share/applications/emacs-*"
+sudo rm "/usr/share/applications/emacsclient*"
 sudo cp "$EMACS_DIR/emacs.desktop" "/usr/share/applications/emacs.desktop"
 
 echo "New Doom Emacs configuration created!"
