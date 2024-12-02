@@ -81,6 +81,9 @@
 (xah-fly-keys 1)
 (setq indent-tabs-mode nil)
 
+;; fixes issue where tabs ain't visible on --daemon mode
+(after! centaur-tabs
+  (setq centaur-tabs-set-bar 'right))
 
 ;; refresh from disk when changes on disk
 (global-auto-revert-mode t)
